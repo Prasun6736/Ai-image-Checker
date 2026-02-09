@@ -1,0 +1,108 @@
+{
+  "project_name": "Verify.ai",
+  "design_philosophy": {
+    "name": "The Truth Lens",
+    "description": "A stark, forensic aesthetic inspired by Swiss design and official analysis reports. High contrast, objective typography, and clinical precision.",
+    "theme_mode": "light",
+    "emotional_tone": "Objective, Technical, Trustworthy"
+  },
+  "typography": {
+    "font_family": {
+      "display": ["Chivo", "sans-serif"],
+      "body": ["Manrope", "sans-serif"],
+      "mono": ["JetBrains Mono", "monospace"]
+    },
+    "scale": {
+      "h1": "text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase",
+      "h2": "text-3xl md:text-4xl font-bold tracking-tight",
+      "h3": "text-xl font-semibold uppercase tracking-widest",
+      "body": "text-base md:text-lg font-medium leading-relaxed tracking-wide",
+      "caption": "text-xs md:text-sm font-mono text-muted-foreground uppercase tracking-wider"
+    },
+    "imports": [
+      "@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@100..900&family=Manrope:wght@200..800&family=JetBrains+Mono:wght@400;500&display=swap');"
+    ]
+  },
+  "colors": {
+    "palette": {
+      "background": "#FFFFFF",
+      "foreground": "#09090B",
+      "surface": "#FAFAFA",
+      "border": "#E4E4E7",
+      "primary": "#18181B",
+      "muted": "#71717A"
+    },
+    "functional": {
+      "fake": "#DC2626",
+      "real": "#059669",
+      "uncertain": "#D97706",
+      "accent": "#27272A"
+    },
+    "tailwind_config": {
+      "extend": {
+        "colors": {
+          "verdict-fake": "#DC2626",
+          "verdict-real": "#059669",
+          "surface-subtle": "#FAFAFA"
+        }
+      }
+    }
+  },
+  "layout_strategy": {
+    "container": "max-w-2xl mx-auto px-6 md:px-12",
+    "grid": "grid grid-cols-1 gap-12",
+    "spacing": {
+      "section_gap": "py-24",
+      "element_gap": "gap-6"
+    }
+  },
+  "components": {
+    "header": {
+      "style": "fixed top-0 left-0 w-full z-50 mix-blend-difference text-white p-6 md:p-12 pointer-events-none",
+      "content": "VERIFY."
+    },
+    "upload_zone": {
+      "name": "ForensicDropzone",
+      "style": "relative aspect-[4/3] w-full border-2 border-dashed border-zinc-200 hover:border-zinc-900 transition-colors duration-500 ease-out flex flex-col items-center justify-center bg-zinc-50/50 hover:bg-white cursor-pointer group rounded-sm overflow-hidden",
+      "active_style": "border-zinc-900 bg-zinc-50",
+      "icon": "EyeOpenIcon (Lucide)",
+      "instruction": "DRAG EVIDENCE HERE"
+    },
+    "verdict_card": {
+      "name": "AnalysisReport",
+      "style": "flex flex-col gap-4 border-t-2 border-black pt-6 mt-8",
+      "verdict_text_style": "text-[12vw] leading-none font-black tracking-tighter uppercase",
+      "confidence_bar": "h-2 w-full bg-zinc-100 overflow-hidden relative"
+    }
+  },
+  "visual_enhancers": {
+    "scan_effect": "A 1px horizontal line that moves from top to bottom of the image container with a trailing gradient. Use pure CSS animation.",
+    "noise_overlay": "Add a subtle 3% noise overlay to the entire background to prevent sterile flatness.",
+    "borders": "Sharp corners (rounded-none or rounded-sm max) to emphasize the 'Technical' feel."
+  },
+  "motion": {
+    "entrance": "stagger-fade-in-up",
+    "hover": "lift-and-glow",
+    "transition": "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)"
+  },
+  "image_assets": {
+    "demo_placeholder": "https://images.unsplash.com/photo-1739001401583-6869d3c2d7db?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzB8MHwxfHNlYXJjaHwyfHxwb3J0cmFpdCUyMHN0dWRpbyUyMGxpZ2h0aW5nJTIwbmV1dHJhbHxlbnwwfHx8fDE3NzA2NjI3NjZ8MA&ixlib=rb-4.1.0&q=85",
+    "instruction": "Use this image as a default placeholder if no image is uploaded yet, or for a 'Try with Sample' feature."
+  },
+  "instructions_to_main_agent": [
+    "1. INSTALL FONTS: Add the Google Fonts import to index.css immediately.",
+    "2. CONFIGURE TAILWIND: Update theme font families to use Chivo (display) and Manrope (body).",
+    "3. IMPLEMENT LAYOUT: Create a single centered column layout. Do not use full-width sections except for the background.",
+    "4. BUILD UPLOAD: The upload zone should feel like a 'Scanner Bed'. Use a subtle grid background pattern inside it if possible.",
+    "5. BUILD VERDICT: The verdict ('FAKE' or 'REAL') should be massive. It is the hero of the result state.",
+    "6. MICRO-INTERACTIONS: Ensure the hover state of the upload zone is obvious. Change cursor to 'crosshair'.",
+    "7. DATA-TESTID: Add data-testid='upload-dropzone', 'analysis-result', 'confidence-score' to elements."
+  ],
+  "UNIVERSAL_GUIDELINES": [
+    "Do not use generic gradients.",
+    "Use 2-3x more spacing than typical.",
+    "Avoid standard rounded-xl cards. Go sharp or subtle rounded-sm.",
+    "Dark text on light background must be #09090B, not #000000.",
+    "Use 'sonner' for toast notifications."
+  ]
+}
